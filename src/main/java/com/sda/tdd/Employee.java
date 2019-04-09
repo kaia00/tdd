@@ -40,13 +40,18 @@ public class Employee {
         this.ID = ID;
     }
 
-    List<Employee> employeesInIT = new ArrayList<Employee>();
+}
 
-    public List<Employee> addEmployeesToITDep(Employee employee) {
-        if (departmentofEmployee.equals("IT")) {
+class EmployeeLists {
+
+    private List<Employee> employeesInIT = new ArrayList<Employee>();
+
+    Employee employee = new Employee();
+
+    public void addEmployeesToITDep(Employee employee) {
+        if (employee.getDepartmentofEmployee().equals("IT")) {
             employeesInIT.add(employee);
         }
-        return employeesInIT;
     }
 
     public List<Employee> getEmployeesInIT() {
@@ -58,5 +63,8 @@ public class Employee {
 
     }
 }
+
+
+
 
 
