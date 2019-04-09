@@ -9,9 +9,11 @@ public class EmployeeTest {
     public void testGetEmployeesInIT() {
         Employee testEmployee = new Employee();
         testEmployee.setDepartmentofEmployee(Employee.Department.IT.toString());
-        testEmployee.addEmployeesToITDep(testEmployee);
 
-        String department = testEmployee.getEmployeesInIT().get(0).getDepartmentofEmployee();
+        EmployeeLists employeeLists = new EmployeeLists();
+        employeeLists.addEmployeesToITDep(testEmployee);
+
+        String department = employeeLists.getEmployeesInIT().get(0).getDepartmentofEmployee();
         Assert.assertEquals("IT", department);
 
     }
@@ -20,9 +22,11 @@ public class EmployeeTest {
     public void testGetEmployeesInITShouldThrowException() {
         Employee testEmployee = new Employee();
         testEmployee.setDepartmentofEmployee(Employee.Department.MARKETING.toString());
-        testEmployee.addEmployeesToITDep(testEmployee);
 
-        String department = testEmployee.getEmployeesInIT().get(0).getDepartmentofEmployee();
+        EmployeeLists employeeLists = new EmployeeLists();
+        employeeLists.addEmployeesToITDep(testEmployee);
+
+        String department = employeeLists.getEmployeesInIT().get(0).getDepartmentofEmployee();
 
     }
 
@@ -32,11 +36,13 @@ public class EmployeeTest {
         Employee testEmployee2 = new Employee();
         testEmployee.setDepartmentofEmployee(Employee.Department.IT.toString());
         testEmployee2.setDepartmentofEmployee(Employee.Department.IT.toString());
-        testEmployee.addEmployeesToITDep(testEmployee);
-        testEmployee2.addEmployeesToITDep(testEmployee2);
 
+        EmployeeLists employeeLists = new EmployeeLists();
 
-        int lengthOfList = testEmployee2.getEmployeesInIT().size();
+        employeeLists.addEmployeesToITDep(testEmployee);
+        employeeLists.addEmployeesToITDep(testEmployee2);
+
+        int lengthOfList = employeeLists.getEmployeesInIT().size();
         Assert.assertEquals(2, lengthOfList);
 
 
