@@ -7,22 +7,13 @@ public class Employee {
 
     private String name;
     private String ID;
-    private String departmentofEmployee;
+    private Department departmentofEmployee;
 
 
     public enum Department {
         IT, FINANCE, PRODUCTION, MARKETING, HR;
 
     }
-
-    public String getDepartmentofEmployee() {
-        return departmentofEmployee;
-    }
-
-    public void setDepartmentofEmployee(String departmentofEmployee) {
-        this.departmentofEmployee = departmentofEmployee;
-    }
-
 
     public String getName() {
         return name;
@@ -40,16 +31,21 @@ public class Employee {
         this.ID = ID;
     }
 
+    public void setDepartmentofEmployee(Department departmentofEmployee) {
+        this.departmentofEmployee = departmentofEmployee;
+    }
+
+    public Department getDepartmentofEmployee() {
+        return departmentofEmployee;
+    }
 }
 
 class EmployeeLists {
 
     private List<Employee> employeesInIT = new ArrayList<Employee>();
 
-    Employee employee = new Employee();
-
     public void addEmployeesToITDep(Employee employee) {
-        if (employee.getDepartmentofEmployee().equals("IT")) {
+        if (employee.getDepartmentofEmployee().toString().equals("IT")) {
             employeesInIT.add(employee);
         }
     }
