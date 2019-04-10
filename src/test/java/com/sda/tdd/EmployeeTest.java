@@ -8,25 +8,25 @@ public class EmployeeTest {
     @Test
     public void testGetEmployeesInIT() {
         Employee testEmployee = new Employee();
-        testEmployee.setDepartmentofEmployee(Employee.Department.IT.toString());
+        testEmployee.setDepartmentofEmployee(Employee.Department.IT);
 
         EmployeeLists employeeLists = new EmployeeLists();
         employeeLists.addEmployeesToITDep(testEmployee);
 
-        String department = employeeLists.getEmployeesInIT().get(0).getDepartmentofEmployee();
-        Assert.assertEquals("IT", department);
+        Employee.Department department = employeeLists.getEmployeesInIT().get(0).getDepartmentofEmployee();
+        Assert.assertEquals("IT", department.toString());
 
     }
 
     @Test(expected = IndexOutOfBoundsException.class)
     public void testGetEmployeesInITShouldThrowException() {
         Employee testEmployee = new Employee();
-        testEmployee.setDepartmentofEmployee(Employee.Department.MARKETING.toString());
+        testEmployee.setDepartmentofEmployee(Employee.Department.MARKETING);
 
         EmployeeLists employeeLists = new EmployeeLists();
         employeeLists.addEmployeesToITDep(testEmployee);
 
-        String department = employeeLists.getEmployeesInIT().get(0).getDepartmentofEmployee();
+        Employee.Department department = employeeLists.getEmployeesInIT().get(0).getDepartmentofEmployee();
 
     }
 
@@ -34,8 +34,8 @@ public class EmployeeTest {
     public void testGetEmployeesInITListSize() {
         Employee testEmployee = new Employee();
         Employee testEmployee2 = new Employee();
-        testEmployee.setDepartmentofEmployee(Employee.Department.IT.toString());
-        testEmployee2.setDepartmentofEmployee(Employee.Department.IT.toString());
+        testEmployee.setDepartmentofEmployee(Employee.Department.IT);
+        testEmployee2.setDepartmentofEmployee(Employee.Department.IT);
 
         EmployeeLists employeeLists = new EmployeeLists();
 
@@ -47,13 +47,5 @@ public class EmployeeTest {
 
 
     }
-
-
 }
 
-
-/*
-In the first test you can check the size of the list.
-And in the second test you can check the department is equal to IT or not..
-
- */
